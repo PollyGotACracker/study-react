@@ -27,6 +27,10 @@ npm install -g create-react-app
 - JS 문법 사용: 큰따옴표`""` 대신 중괄호`{}` 사용  
   HTML tag 에 inline 방식으로 JS 함수 삽입
 
+## Props
+
+- 부모 컴포넌트가 자식 컴포넌트에게 객체 형태로 요소 전달
+
 ## [state와 props의 차이점](https://github.com/uberVU/react-guide/blob/master/props-vs-state.md)
 
 - props(properties) 와 state 는 일반 JavaScript 객체로, 두 객체 모두 렌더링 결과물에 영향을 주는 정보를 갖고 있다.
