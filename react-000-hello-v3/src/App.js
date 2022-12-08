@@ -3,6 +3,7 @@ import "./css/App.css";
 import Button from "./comps/Button";
 import Box from "./comps/Box";
 import Section from "./comps/Section";
+import Article from "./comps/Article";
 
 function App() {
   const buttonStyle = {
@@ -10,6 +11,10 @@ function App() {
     border: "none",
     color: "white",
     padding: "12px 16px",
+  };
+
+  const theme = {
+    black: true,
   };
 
   // Section component 내부는 children 객체로 넘어감
@@ -28,6 +33,7 @@ function App() {
         </Button>
         <Box />
       </Section>
+      <Article theme="yellow"></Article>
     </div>
   );
 }

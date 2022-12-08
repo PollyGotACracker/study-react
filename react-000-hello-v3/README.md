@@ -5,6 +5,8 @@
 - 만약 데이터를 server 에서 가져오려면 fetch, axios 같은 도구를 사용해야 한다.
 - "한번 만들고 다시 사용하는 도구" 라는 개념이 매우 강하다.
 
+## [합성(Composition)](https://ko.reactjs.org/docs/composition-vs-inheritance.html)
+
 ## React 컴포넌트 스타일링
 
 - 일반적인 css 를 지정하기
@@ -30,3 +32,7 @@
 
 - `yarn add node-sass` 로 dependency 설정  
   npm 은 python 의존성 관계로 사용 불가(react 에서는 node-sass 사용해야)
+
+### styled-components 사용하기
+
+- `yarn add styled-components`
