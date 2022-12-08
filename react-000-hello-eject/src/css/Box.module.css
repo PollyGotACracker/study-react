@@ -1,0 +1,18 @@
+/*
+CSS Module
+css class 중첩 방지
+css 파일명: component명.module.css
+component 내의 className에 
+import 한 css 객체이름 + css 내에서 설정한 class명
+*/
+
+.container {
+  border: 1px solid #aaa;
+  display: flex;
+  width: 80%;
+  margin: 10px auto;
+}
+
+.container:hover {
+  background-color: #ddd;
+}
