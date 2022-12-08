@@ -1,0 +1,25 @@
+// Section.scss 를 포함하여 사용하기
+// 들여쓰기 준수. 세미콜론 선택 사용
+@import "../scss/Section.scss"
+
+// 변수 선언하기
+$black: "black"
+$green: "green"
+
+// 함수 선언하기
+=circle($size)
+    $width: 30px * $size
+    width: $width
+    height: $width
+    border-radius: 50%
+
+// 함수 사용하기
+.circle
+    +circle(10)
+    &.blue
+        background-color: blue
+
+// section.circle 또는 section.box
+section
+    &.circle
+    &.box
