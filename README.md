@@ -13,6 +13,7 @@ npm install -g create-react-app
 
 - React 는 상태변수를 감시하여 데이터가 변경되면 전체 UI를 새로운 가상DOM(virtual DOM)에 reRendering,  
   이전의 가상DOM 과 서로 비교한 후 변경된 부분만 실제DOM(real DOM) 에 반영한다(동기화).
+- view-state 연결에서, state 데이터가 변경되면 view 는 해당 state 만 변경된다.
 
 ## React 기본 사용법
 
