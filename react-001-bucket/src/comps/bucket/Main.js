@@ -38,6 +38,7 @@ const BucketMain = () => {
       const updateBucketList = bucketList.map((item) => {
         // bucket 은 기존에 있던 데이터, item 은 전달받은 데이터
         if (item.b_seq === bucket.b_seq) {
+          // item 객체를 spread 한 후 b_content 덮어쓰기
           return {
             ...item,
             b_content: bucket.b_content,
