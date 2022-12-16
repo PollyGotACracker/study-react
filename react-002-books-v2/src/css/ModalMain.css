@@ -1,0 +1,105 @@
+/* 
+Modal 은 위에 화면이 popup 되면 아래 보이는 화면에 이벤트가 설정되지 않아야 한다.
+Modal 을 구현하기 위해서 가장 바깥쪽 박스를 전체 화면 크기로 하고 position 을 고정
+position 을 고정한다는 것은 어떤 화면에도 간섭 없이 절대 좌표 위치에 box 를 만든다는 것이다.
+*/
+
+/* 
+cf)
+position: fixed
+위치 기준이 부모요소가 아닌 viewport 이므로
+position:relative 를 별도로 줄 필요가 없다.
+또한, top, bottom, left, right 속성 전부 설정하여
+width, height 도 값을 지정하지 않는다.
+*/
+
+.Modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+}
+.Modal.openModal {
+  display: flex;
+  align-items: center;
+}
+
+.Modal button {
+  outline: none;
+  cursor: pointer;
+  border: none;
+}
+.Modal button:hover {
+  color: #777;
+}
+
+.Modal > section {
+  width: 90%;
+  max-width: 450px;
+  margin: 0 auto;
+  background-color: white;
+  overflow: auto;
+  animation: 0.8s modal-show;
+}
+.Modal > section.section-600 {
+  max-width: 600px;
+}
+.Modal > section.section-900 {
+  max-width: 900px;
+}
+.Modal > section.section-1200 {
+  max-width: 1200px;
+}
+
+.Modal > section > header {
+  position: relative;
+  padding: 16px 64px 16px 16px;
+  background-color: #f1f1f1;
+  font-weight: 700;
+}
+.Modal > section > header > button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 30px;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  color: #999;
+  background-color: transparent;
+}
+.Modal > section > footer {
+  padding: 16px;
+  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  text-align: right;
+}
+.Modal > section > footer > button {
+  padding: 6px 12px;
+  color: white;
+  background-color: #6c757d;
+  border-radius: 5px;
+  font-size: 15px;
+}
+.Modal > section > main {
+  padding: 16px;
+  border-bottom: #ddd;
+  border-top: #ddd;
+}
+
+@keyframes modal-show {
+  from {
+    opacity: 0;
+    margin-top: -50px;
+    /* width: 10px; */
+  }
+  to {
+    opacity: 1;
+    margin-top: 0;
+    /* width: 450px; */
+  }
+}
