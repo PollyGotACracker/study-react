@@ -1,32 +1,32 @@
-div.Insert {
+form.Form {
   width: 80%;
   height: 10%;
   margin-bottom: 20px;
 }
-.Insert .input,
-.Insert .btn {
+.Form .input,
+.Form .button {
   font-size: 12pt;
   border: 0;
   outline: 0;
 }
-.Insert .input {
-  width: 80%;
+.Form .input {
+  width: calc(100% - 110px);
   border-bottom: 1px solid #aaa;
   padding: 10px 5px;
   caret-color: #6a768a;
 }
-.Insert .btn {
-  width: 18%;
-  margin-left: 2%;
+.Form .button {
+  font-family: "MICEGothic Bold";
+  width: 100px;
+  margin-left: 10px;
   padding: 10px;
   color: white;
   background-color: #6a768a;
   border-radius: 5px;
-  font-weight: 700;
   white-space: nowrap;
-  transition: all linear 0.3s;
+  transition: all linear 0.2s;
 }
-.Insert .btn:hover {
+.Form .button:hover {
   cursor: pointer;
   background-color: rgb(219, 75, 75);
 }

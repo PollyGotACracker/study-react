@@ -8,13 +8,13 @@ section.Main {
   align-items: center;
 }
 .Main .header {
+  font-family: "MICEGothic Bold";
   width: 100%;
   padding: 1em;
   user-select: none;
   background-color: #6a768a;
   color: white;
   font-size: 25pt;
-  font-weight: 700;
   text-align: center;
   border-radius: 10px 10px 0 0;
   border-bottom: 2px solid #282c34;

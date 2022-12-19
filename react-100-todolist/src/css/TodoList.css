@@ -2,7 +2,6 @@ ul.TodoList {
   width: 80%;
   height: 100%;
   overflow: hidden auto;
-  padding: 0 15px;
 }
 ul.TodoList::-webkit-scrollbar {
   background-color: transparent;
@@ -12,48 +11,75 @@ ul.TodoList::-webkit-scrollbar-thumb {
   background-color: #6a768a;
   border-radius: 5px;
 }
-ul.TodoList .Item {
+ul.TodoList li.Item {
   width: 100%;
   position: relative;
   list-style: none;
-  padding: 10px;
+  padding: 2px;
   border-bottom: 1px dashed #ccc;
   display: flex;
 }
-ul.TodoList .Item span {
-  display: inline-block;
+ul.TodoList li.Item span {
   width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
 }
-ul.TodoList .Item span.complete {
-  text-decoration: line-through;
-  color: #aaa;
-}
-ul.TodoList span.complete:after {
-  content: "\2713";
-  position: absolute;
-  bottom: 8px;
-  right: 10px;
+ul.TodoList li.Item span svg {
   color: #6a768a;
   font-size: 16pt;
   font-weight: 900;
-}
-ul.TodoList .Item button {
+  pointer-events: none;
   opacity: 0;
-  margin-right: 20px;
+}
+ul.TodoList li.Item span.complete {
+  text-decoration: line-through;
+  color: #aaa;
+}
+ul.TodoList li.Item span.complete svg {
+  opacity: 1;
+  animation: 0.3s ease-in-out jump;
+}
+@keyframes jump {
+  0% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+ul.TodoList li.Item button {
+  width: 30px;
+  opacity: 0;
   user-select: none;
   border: 0;
   outline: 0;
-  color: rgb(219, 75, 75);
+  font-size: 15pt;
   font-weight: 900;
   pointer-events: none;
   background-color: transparent;
+  transition: all linear 0.2s;
 }
-ul.TodoList .Item:hover {
+ul.TodoList li.Item button.delete {
+  color: rgb(219, 75, 75);
+  margin-right: 5px;
+}
+ul.TodoList li.Item button.update {
+  color: rgb(66, 66, 163);
+  margin-right: 5px;
+}
+ul.TodoList li.Item button svg {
+  pointer-events: none;
+}
+ul.TodoList li.Item:hover {
   cursor: pointer;
   background-color: #eee;
 }
-ul.TodoList .Item:hover button {
+ul.TodoList li.Item:hover button {
   opacity: 1;
-  pointer-events: all;
   cursor: pointer;
+  pointer-events: all;
 }
