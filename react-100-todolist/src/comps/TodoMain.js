@@ -6,12 +6,12 @@ import TodoList from "./TodoList";
 import { todoListData } from "../data/TodoData";
 
 const TodoMain = (props) => {
-  const [TodoListData, SetTodoListData] = useState(todoListData);
-  const [TodoItemData, SetTodoItemData] = useState({
+  const [todoList, setTodoList] = useState(todoListData);
+  const [todoItem, setTodoItem] = useState({
     t_id: uuid(),
     t_complete: false,
   });
-  const [BtnMode, setBtnMode] = useState("추가");
+  const [btnMode, setBtnMode] = useState("추가");
 
   const selectItem = (e) => {
     setBtnMode("수정");
@@ -26,20 +26,20 @@ const TodoMain = (props) => {
   const insertItem = (id) => {
     // Insert Item
     if (id === undefined) {
-      SetTodoListData([...TodoListData, TodoItemData]);
+      setTodoList([...todoList, todoItem]);
       // Update Item
     } else {
-      const setUpdate = TodoListData.map((item) => {
+      const setUpdate = todoList.map((item) => {
         if (item.t_id === id) {
-          return { ...item, t_id: id, ...TodoItemData };
+          return { ...item, t_id: id, ...todoItem };
         }
         return item;
       });
-      SetTodoListData([...setUpdate]);
+      setTodoList([...setUpdate]);
       setBtnMode("추가");
     }
     // TodoItemData t_id 값 초기화
-    SetTodoItemData({ ...TodoItemData, t_id: uuid() });
+    setTodoItem({ ...todoItem, t_id: uuid() });
   };
 
   // cf) setState()에 값을 전달할 경우
@@ -48,20 +48,20 @@ const TodoMain = (props) => {
     const target = e.target;
     const id = target.dataset.id;
     target.classList.toggle("complete");
-    const setComplete = TodoListData.map((item) => {
+    const setComplete = todoList.map((item) => {
       if (item.t_id === id) {
         return { ...item, t_complete: !item.t_complete };
       }
       return item;
     });
-    SetTodoListData([...setComplete]);
+    setTodoList([...setComplete]);
   };
 
   const deleteItem = (e) => {
     const target = e.target.parentNode.childNodes[2];
     const id = target.dataset.id;
-    const setRemove = TodoListData.filter((item) => item.t_id !== id);
-    SetTodoListData([...setRemove]);
+    const setRemove = todoList.filter((item) => item.t_id !== id);
+    setTodoList([...setRemove]);
   };
 
   return (
@@ -69,13 +69,13 @@ const TodoMain = (props) => {
       <header className="Main header">오늘 할 일</header>
       <main className="Main container">
         <TodoInput
-          TodoItemData={TodoItemData}
-          SetTodoItemData={SetTodoItemData}
+          todoItem={todoItem}
+          setTodoItem={setTodoItem}
           insertItem={insertItem}
-          BtnMode={BtnMode}
+          btnMode={btnMode}
         />
         <TodoList
-          TodoListData={TodoListData}
+          todoList={todoList}
           toggleItem={toggleItem}
           selectItem={selectItem}
           deleteItem={deleteItem}

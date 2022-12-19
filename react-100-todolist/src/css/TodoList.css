@@ -15,7 +15,7 @@ ul.TodoList li.Item {
   width: 100%;
   position: relative;
   list-style: none;
-  padding: 2px;
+  padding: 0 10px;
   border-bottom: 1px dashed #ccc;
   display: flex;
 }
@@ -57,19 +57,21 @@ ul.TodoList li.Item button {
   user-select: none;
   border: 0;
   outline: 0;
-  font-size: 15pt;
+  font-size: 16pt;
   font-weight: 900;
   pointer-events: none;
   background-color: transparent;
   transition: all linear 0.2s;
-}
-ul.TodoList li.Item button.delete {
-  color: rgb(219, 75, 75);
-  margin-right: 5px;
+  color: #6a768a;
 }
 ul.TodoList li.Item button.update {
-  color: rgb(66, 66, 163);
   margin-right: 5px;
+}
+ul.TodoList li.Item button.delete:hover {
+  color: rgb(219, 75, 75);
+}
+ul.TodoList li.Item button.update:hover {
+  color: rgb(66, 66, 163);
 }
 ul.TodoList li.Item button svg {
   pointer-events: none;

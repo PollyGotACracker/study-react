@@ -1,11 +1,11 @@
 import "../css/TodoInput.css";
 
 const TodoInput = (props) => {
-  const { TodoItemData, SetTodoItemData, insertItem, BtnMode } = props;
+  const { todoItem, setTodoItem, insertItem, btnMode } = props;
 
   const onChangeHandler = (e) => {
     const value = e.target.value;
-    SetTodoItemData({ ...TodoItemData, t_content: value });
+    setTodoItem({ ...todoItem, t_content: value });
   };
 
   const initForm = (input) => {
@@ -46,7 +46,7 @@ const TodoInput = (props) => {
         onKeyDown={onKeyDownHandler}
       />
       <button className="Form button" type="button" onClick={onClickHandler}>
-        {BtnMode}
+        {btnMode}
       </button>
     </form>
   );
