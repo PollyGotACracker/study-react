@@ -27,7 +27,9 @@
 
 - 화면 rendering 과 관련된 event 를 관리하는 함수
 - 데이터 가져오기(API, DB, Server 로부터), 구독 설정(MQTT의 발행-구독), 수동으로 DOM(HTML 등)을 수정하는 등  
-  의 행위는 side effect 를 발생시킨다. side effect 가 발생하면 예기치 못한 화면 rendering 이 발생할 수 있다.
+  의 행위는 side effect 를 발생시킨다.
+- side effect 란 컴포넌트 rendering 이후 컴포넌트의 내용을 변경하거나, 네트워크 통신 등의 작업을 하는 행위다(<> main effect).  
+  side effect 가 발생하면 예기치 못한 화면 rendering 이 발생할 수 있다.
 - 예를 들면, 화면에 이미 일부 데이터가 표현된 상태에서 fetch 를 이용하여 가져온 데이터가 뒤늦게 도착했을 때,  
   도착한 데이터를 state 변수에 setting 하면 React 는 state 변수가 변화되었다는 것을 감지하고 다시 화면을 그리려고 시도할 것이다.
 - side effect 가 발생할 수 있는 코드는 useEffect() 함수 내에서 실행하자.

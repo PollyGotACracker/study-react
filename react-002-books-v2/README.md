@@ -65,10 +65,3 @@ const App = ()=>{
 }
 export default App
 ```
-
-## NAVER API CORS 오류
-
-- package.json 파일에서 "proxy" : "네이버 API 최상위주소" (API 이름 바로 전까지) 설정  
-  위치는 상관없음
-- 나머지 하위 주소는 해당 파일에서 변수로 설정
-- 서버 재시작

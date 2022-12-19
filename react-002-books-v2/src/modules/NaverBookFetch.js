@@ -9,6 +9,8 @@ import { CLIENT_ID, CLIENT_SECRET } from "../config/NaverSecret";
  * 실제 네이버 API 에 요청하는 주소는 proxy + URL 형식으로 만들어진다.
  */
 
+// -(dash)는 객체의 키로 직접 들어갈 수 없기 때문에
+// ID_KEY 와 SECRET_KEY 를 변수로 선언한 후 computed property names 방식 사용
 const NAVER_BOOK_JSON_URL = "/search/book.json";
 const NAVER_CLIENT_ID_KEY = "X-Naver-Client-Id";
 const NAVER_CLIENT_SECRET_KEY = "X-Naver-Client-Secret";

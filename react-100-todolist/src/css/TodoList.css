@@ -1,0 +1,59 @@
+ul.TodoList {
+  width: 80%;
+  height: 100%;
+  overflow: hidden auto;
+  padding: 0 15px;
+}
+ul.TodoList::-webkit-scrollbar {
+  background-color: transparent;
+  width: 5px;
+}
+ul.TodoList::-webkit-scrollbar-thumb {
+  background-color: #6a768a;
+  border-radius: 5px;
+}
+ul.TodoList .Item {
+  width: 100%;
+  position: relative;
+  list-style: none;
+  padding: 10px;
+  border-bottom: 1px dashed #ccc;
+  display: flex;
+}
+ul.TodoList .Item span {
+  display: inline-block;
+  width: 100%;
+}
+ul.TodoList .Item span.complete {
+  text-decoration: line-through;
+  color: #aaa;
+}
+ul.TodoList span.complete:after {
+  content: "\2713";
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  color: #6a768a;
+  font-size: 16pt;
+  font-weight: 900;
+}
+ul.TodoList .Item button {
+  opacity: 0;
+  margin-right: 20px;
+  user-select: none;
+  border: 0;
+  outline: 0;
+  color: rgb(219, 75, 75);
+  font-weight: 900;
+  pointer-events: none;
+  background-color: transparent;
+}
+ul.TodoList .Item:hover {
+  cursor: pointer;
+  background-color: #eee;
+}
+ul.TodoList .Item:hover button {
+  opacity: 1;
+  pointer-events: all;
+  cursor: pointer;
+}

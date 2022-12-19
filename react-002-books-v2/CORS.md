@@ -23,3 +23,10 @@
 - 여러 곳의 Server 를 통하여 API 를 주고받을 때는 proxy 설정만으로 해결이 어렵다.  
   proxy 는 한 곳만 지정할 수 있기 때문이다.
 - React 나 NodeJS 에서는 3rd party middleware 를 사용하여 해결하는 방법들도 있다.
+
+### NAVER API CORS 오류
+
+- package.json 파일에서 "proxy" : "네이버 API 최상위주소" (API 이름 바로 전까지) 설정  
+  위치는 상관없음
+- 나머지 하위 주소는 해당 파일에서 변수로 설정
+- 서버 재시작
