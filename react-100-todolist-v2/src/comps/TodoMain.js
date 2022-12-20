@@ -8,11 +8,15 @@ import TodoList from "./TodoList";
 const TodoMain = () => {
   const [todoContentList, setTodoContentList] = useState([]);
 
-  const todoInsert = useCallback((t_content) => {
-    // 함수를 불러왔으므로 실행한 값을 spread
-    const data = { ...InitData(), t_content };
-    setTodoContentList([...todoContentList, data]);
-  });
+  // useCallback( ()=>{}, [매개변수들] )
+  const todoInsert = useCallback(
+    (t_content) => {
+      // InitData는 함수이므로 실행한 값을 spread
+      const data = { ...InitData(), t_content };
+      setTodoContentList([...todoContentList, data]);
+    },
+    [setTodoContentList, todoContentList]
+  );
 
   const todoDelete = useCallback((uid) => {
     const removeList = todoContentList.filter((item) => {
