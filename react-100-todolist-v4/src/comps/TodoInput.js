@@ -1,26 +1,19 @@
-// import { useState } from "react";
+import { useTodoContext } from "../context/TodoContext";
 
-const TodoInput = (props) => {
-  // state 를 제거하고 TodoMain 으로부터 state 받기
-  const { todoInsert, todoContent, setTodoContent } = props;
-  // TodoInput 에 있는 state 를 TodoMain 으로 이동하기
-  // const [todoContent, setTodoContent] = useState("");
+const TodoInput = () => {
+  // ContextProvider 로부터 state 관련 변수, 함수 받기
+  const { todoInsert, todoContent, setTodoContent } = useTodoContext();
 
-  /**
-   * 추가 button 을 클릭했을 때 사용할 event
-   */
   const onClickHandler = () => {
     todoInsert(todoContent.t_content);
   };
 
-  /**
-   * input box 문자열을 입력할 때 사용할 event
-   */
   const onChangeHandler = (e) => {
     const value = e.target.value;
     setTodoContent({ ...todoContent, t_content: value });
   };
 
+  // cf) {} 내의 조건을 만족하면 disabled 속성을 true로 변경
   return (
     <div className="input">
       <input
@@ -28,7 +21,12 @@ const TodoInput = (props) => {
         onChange={onChangeHandler}
         value={todoContent.t_content}
       />
-      <button onClick={onClickHandler}>Enter</button>
+      <button
+        onClick={onClickHandler}
+        disabled={todoContent.t_content.length < 2}
+      >
+        Enter
+      </button>
     </div>
   );
 };

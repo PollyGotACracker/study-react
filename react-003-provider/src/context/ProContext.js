@@ -18,6 +18,7 @@ const useProContext = () => {
 /**
  * state 변수, setState() 함수들을 만들고 관리하는 함수
  */
+// children 은 확장 컴포넌트(ProContext.Provider) 안에서 묶일 컴포넌트들이다.
 const ProContextProvider = ({ children }) => {
   const [nation, setNation] = useState("");
   const [nationList, setNationList] = useState([]);
@@ -38,7 +39,6 @@ const ProContextProvider = ({ children }) => {
    */
   // createContext() 로 만들어진 객체의 Provider 메서드를 사용
   // value 속성은 키워드로 state 변수와 setState() 함수들 담은 객체를 전달받는다.
-  // children 은 안에 묶인 컴포넌트들이다.
   return <ProContext.Provider value={props}>{children}</ProContext.Provider>;
 };
 
