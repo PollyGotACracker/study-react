@@ -17,20 +17,20 @@ const MainRouter = () => {
   return (
     <Routes>
       <Route path="/">
-        <Route index element={<h1>홈페이지</h1>}></Route>
+        <Route index element={<h1>홈페이지</h1>} />
         <Route path="/notice">
           <Route index element={<NoticeMain />} />
           <Route path="list" element={<NoticeList />} />
           <Route path="write" element={<NoticeWrite />} />
         </Route>
-        <Route path="/bbs" element={<BBSMain />}></Route>
+        <Route path="/bbs" element={<BBSMain />} />
       </Route>
       <Route path="/user" element={<UserMain />}>
-        <Route path="login" element={<UserLogin />}></Route>
-        <Route path="join" element={<UserJoin />}></Route>
-        <Route path="profile/:username" element={<UserJoin />}></Route>
+        <Route path="login" element={<UserLogin />} />
+        <Route path="join" element={<UserJoin />} />
+        <Route path="profile/:username" element={<UserJoin />} />
       </Route>
-      <Route path="*" element={<NotFound />}></Route>
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };
