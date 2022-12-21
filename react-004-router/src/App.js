@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
 import "./css/App.css";
 import Nav from "./page/Nav";
-import MainRouter from "./page/MainRrouter";
+import MainRouter from "./page/MainRouter";
 import { BrowserRouter } from "react-router-dom";
 
 function App() {
