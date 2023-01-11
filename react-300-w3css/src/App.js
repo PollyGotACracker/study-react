@@ -11,14 +11,18 @@ import TodoItem from "./TodoItem";
  * cf)
  * 함수형 컴포넌트는 함수명을 컴포넌트의 이름으로 사용한다...
  * React Styled-Components(Tagged Template Literals) 를 사용,
- * 미리 디자인된 컴포넌트를 생성...
+ * 미리 디자인된 컴포넌트를 생성
  *    const 함수명 = styled.a`...` 또는 styled('a')`...`
- *    HTML element tag 는 styled 객체의 helper method(method 처럼 작동)이다.
- *    여기서 template literal 은 함수의 인자인 문자열이다.
+ *    HTML element tag 는 tag function 으로, styled 객체의 helper method(method 처럼 작동)이다.
+ *    여기서 template literal 은 tag function 의 인자이다.
+ *    1번째 파라미터로 expression interpolation 기준으로 문자열이 분할되어 배열 형태로 전달.
+ *    2번째부터 expression interpolation 의 값이 차례로 전달.
+ *        expression interpolation : $와 중괄호를 이용한 표현식 표기
+ *    대상이 되는 tag 는 내부에서 & 로 표기.
  */
 
 // div tag 에 속성이 부여된 컴포넌트
-// div box 를 만들고 자체적으로 className 을 생성하서 부착하고
+// div box 를 만든 후 자체적으로 className 을 생성해서 부착하고
 // style sheet 를 별도로 분리하여 충돌하지 않도록 만든다.
 // 또한 다른 3rd party css 와 충돌도 최소화 시켜준다.
 const Box = styled.div`
@@ -44,6 +48,18 @@ const getNewTodo = (v) => {
 };
 
 const App = () => {
+  /**
+   * cf)
+   * useRef()
+   * 주로 DOM 접근에 사용, 기존 querySelector, getElementById 를 대체
+   * DOM 에 접근할 때 해당 tag 의 ref 속성의 값으로 사용
+   * .current 프로퍼티를 사용해 값을 가져옴
+   * initial value 를 인수로 받음
+   *
+   * useState 와 차이점
+   * 값이 변경되어도 reRendering 되지 않는다.
+   * 업데이트된 참조값을 즉시 사용할 수 있다(동기식).
+   */
   const inputRef = useRef(null);
 
   /**
@@ -63,7 +79,8 @@ const App = () => {
    */
 
   // input box 와 연관된 state 변수
-  // useState 안의 callback 은 실행시키지 않는다(무한실행할 수 있음)
+  // cf) useState 안의 callback 은 전달만 하고 실행시키지 않는다
+  // (무한실행할 수 있음)
   const [todo, setTodo] = useState(getNewTodo);
   // 리스트로 보여질 state (배열)변수
   const [todoList, setTodoList] = useState([]);
@@ -116,9 +133,11 @@ const App = () => {
   // todo state 에 담겨있는 데이터를 todoList state 에 추가하라
   const onKeyDownHandler = (e) => {
     if (e.keyCode === 13) {
-      // cf) 새로 추가하는 todo 요소를 리스트의 앞에 놓으면 위에서부터 추가된다.
+      // cf) 내림차순으로 추가
+      // 새로 추가하는 todo 요소를 리스트의 앞에 놓으면 위에서부터 추가된다.
       setTodoList([todo, ...todoList]);
       inputRef.current.select();
+      // getNewTodo 함수 호출 시점을 보기 위한 인자 전달
       setTodo(getNewTodo("함수 호출"));
     }
   };

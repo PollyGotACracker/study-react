@@ -32,6 +32,8 @@ const TodoItem = (props) => {
   const completeClickHandler = () => {
     props.todoComplete(props.id);
   };
+
+  // 삼항연산자를 사용하여 조건부 css 적용, 객체로 선언
   const compStyle = {
     textDecoration: props.complete ? "line-through" : "none",
     color: props.complete ? "#777" : "blue",
