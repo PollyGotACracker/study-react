@@ -57,7 +57,7 @@ const App = () => {
    * initial value 를 인수로 받음
    *
    * useState 와 차이점
-   * 값이 변경되어도 reRendering 되지 않는다.
+   * 값이 변경되어도 reRendering 되지 않는다!!
    * 업데이트된 참조값을 즉시 사용할 수 있다(동기식).
    */
   const inputRef = useRef(null);
