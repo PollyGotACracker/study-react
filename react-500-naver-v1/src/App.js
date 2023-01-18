@@ -1,8 +1,12 @@
+import { BookContextProvider } from "./context/BookContextProvider";
+import { UserContextProvider } from "./context/UserContextProvider";
+import { MyBookContextProvider } from "./context/MyBookContextProvider";
 import "./css/App.css";
 import Nav from "./layout/Nav";
-import CardMain from "./comps/CardMain";
-import Books from "./comps/books/BookList";
-import SearchInput from "./Input";
+import BookMain from "./comps/books/BookMain";
+import UserMain from "./comps/users/UserMain";
+import MyBookMain from "./comps/mybook/MyBookMain";
+
 /**
  * cf)
  * 컴포넌트 내부에 내부 컴포넌트를 선언할 경우...
@@ -16,10 +20,16 @@ function App() {
         <h1>나의 도서정보</h1>
         <p>네이버 openAPI 를 연동한 도서정보</p>
       </header>
-      <Nav />
-      <CardMain maxHeight="600px" width="80%" header={<SearchInput />}>
-        <Books />
-      </CardMain>
+      <UserContextProvider>
+        <MyBookContextProvider>
+          <Nav />
+          <BookContextProvider>
+            <BookMain />
+            <UserMain />
+            <MyBookMain />
+          </BookContextProvider>
+        </MyBookContextProvider>
+      </UserContextProvider>
     </div>
   );
 }
