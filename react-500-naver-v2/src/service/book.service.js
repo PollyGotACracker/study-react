@@ -1,3 +1,6 @@
+// server 에서 데이터를 가져올 때 사용하는 코드 모음
+// mybook 데이터
+
 export const getMyBooks = async (username) => {
   try {
     const response = await fetch(`/api/book/my/${username}`);

@@ -1,3 +1,5 @@
+// server 에서 데이터를 가져올 때 사용하는 코드 모음
+// user 데이터
 import { User } from "../models/User";
 
 // login 된 사용자 정보 가져오기
@@ -31,5 +33,9 @@ const setLogin = async (loginUser) => {
   return result;
 };
 
-const Auth = { getLoginUser, setLogin };
+export const logout = async () => {
+  if (window.confirm("로그아웃할까요?")) return await fetch("/api/user/logout");
+};
+
+const Auth = { getLoginUser, setLogin, logout };
 export default Auth;

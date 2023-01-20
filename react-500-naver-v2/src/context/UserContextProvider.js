@@ -11,6 +11,7 @@ export const useUserContext = () => {
 export const UserContextProvider = ({ children }) => {
   const [loginUser, setLoginUser] = useState(new User());
   const [sessionUser, setSessionUser] = useState(new User());
+
   // useRef() : html 의 id 속성을 UUID 로 생성해주는 hook
   const usernameRef = useRef();
   const passwordRef = useRef();
