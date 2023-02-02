@@ -1,0 +1,105 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 20vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+div.image-view {
+  position: relative;
+  width: 500px;
+  height: 340px;
+  margin: 30px auto;
+  border: 1px solid #777;
+  overflow: hidden;
+}
+
+div.image-box {
+  display: flex;
+  position: absolute;
+  width: 500px;
+  height: 340px;
+  top: 0;
+  left: 0;
+}
+
+div.image-box:hover {
+  animation-play-state: paused;
+}
+
+div.animation-left {
+  animation: image_left 20s linear infinite;
+}
+div.animation-right {
+  animation: image_right 20s linear infinite;
+}
+
+div.button-box {
+  width: 500px;
+  display: flex;
+  justify-content: space-between;
+  margin: 5px auto;
+  padding: 5px;
+  font-weight: 500;
+}
+
+div.button:hover {
+  color: blue;
+  cursor: pointer;
+}
+
+@keyframes image_left {
+  0% {
+    transform: translateX(0px);
+  }
+  /* 
+  첫번째 배열 마지막 이미지 -> 두번째 배열 첫번째 이미지(-4000)
+   -> 첫번째 배열 첫번째 이미지(0)로 넘어가도록 해서 자연스럽게 연결 
+  -4000px: 두번째 이미지 배열의 첫번째 사진 left 좌표 
+  두번째 이미지 배열에서 첫번째를 제외한 나머지 이미지는 쓰이지 않음
+  */
+  100% {
+    transform: translateX(-4000px);
+  }
+}
+
+@keyframes image_right {
+  0% {
+    transform: translateX(-4000px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
